@@ -1,0 +1,13 @@
+QUIZ QUESTION
+Use the above image and your new knowledge of ERDs to match each Term to the appropriate Definition.
+
+   Definition                                  |          Term
+   -----------------------------------------------------------------
+   A column name in the Parch & Posey database | primary_poc
+   A table name in the Parch & Posey database  | web_events
+   A collection of tables that share connected | 
+    data stored in a computer                  | Data base
+   A diagram that shows how data is            |
+    structured in a database                   | ERD
+   A language that allows us to access         |
+    data stored in a database.                 | SQL
