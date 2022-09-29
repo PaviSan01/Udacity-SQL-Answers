@@ -1,0 +1,141 @@
+Quiz--> LIMIT
+Try using LIMIT yourself below by writing a query that displays all the data in the occurred_at, account_id,
+and channel columns of the web_events table, and limits the output to only the first 15 rows.
+
+Answer:-
+select occurred_at,account_id,channel
+from web_events
+limit 15;
+
+Quiz--> ORDER BY
+Answers:-
+1)select id, occurred_at, total_amt_usd
+from orders
+order by occurred_at
+limit 10;
+
+2)select id, account_id, total_amt_usd
+from orders
+order by total_amt_usd desc
+limit 5;
+
+3)select id, account_id, total_amt_usd
+from orders
+order by total_amt_usd 
+limit 20;
+
+Quiz--> ORDER BY part-2
+Answers:-
+1)select id,account_id,total_amt_usd
+from orders
+order by account_id, total_amt_usd desc;
+
+2)select id,account_id,total_amt_usd
+from orders
+order by total_amt_usd desc, account_id;
+
+Quiz-->WHERE
+Answers:-
+1)select gloss_amt_usd
+from orders
+where gloss_amt_usd>=1000
+limit 5;
+
+2)select total_amt_usd
+from orders
+where total_amt_usd<500
+limit 10;
+
+Quiz--> WHERE with non-numeric data
+Answer:-
+select *
+from accounts
+where name = 'Exxon Mobil';
+
+Quiz--> Arithmetic Operators
+Answers:-
+1)select id, account_id,(standard_amt_usd/standard_qty) as unit_price
+from orders
+limit 10;
+
+2)select id, account_id, (standard_amt_usd+gloss_amt_usd+poster_amt_usd)/poster_amt_usd as per_revenue
+from orders
+limit 10;
+
+Quiz-->LIKE
+Answers:-
+1)select *
+from accounts
+where name like 'C%';
+
+2)select *
+from accounts
+where name like '%one%';
+
+3)select *
+from accounts
+where name like '%s';
+
+Quiz-->IN
+Answers:-
+1)select name, primary_poc, sales_rep_id
+from accounts
+where name in ('Walmart','Target','Nordstrom');
+
+2)select *
+from web_events
+where channel in ('organic','adwords');
+
+Quiz-->NOT
+Answers:-
+1)select name,primary_poc,sales_rep_id
+from accounts
+where name not in ('Walmart','Target','Nordstrom');
+
+2)select *
+from web_events
+where channel not in ('organic','adwords');
+
+3)Use the accounts table to find:
+  i)select *
+    from accounts
+    where name not like 'C%'
+ ii)select *
+     from accounts
+     where name not like '%one%';
+ iii)select *
+      from accounts
+      where name not like '%s';
+      
+Quiz-->AND & BETWEEN
+1)select *
+from orders
+where standard_qty>1000 and poster_qty>0 and gloss_qty>0;
+
+2)select *
+from accounts
+where name not like 'C%' and name not like '%s';
+
+3)select occurred_at,gloss_qty
+from orders
+where gloss_qty between 24 and 29
+order by gloss_qty;
+
+4)select *
+from web_events
+where channel in ('organic','adwords') and occurred_at between '2016-01-01' and '2017-01-01'
+order by occurred_at desc;
+
+Quiz-->OR
+Answers:-
+1)select id
+from orders
+where gloss_qty>4000 or poster_qty>4000;
+
+2)select id
+from orders
+where standard_qty=0 and (gloss_qty>1000 or poster_qty>1000);
+
+3)select *
+from accounts
+where (name like 'C%' or name like 'W%') and ((primary_poc like '%ana%' or primary_poc like '%Ana%') and (primary_poc not like '%eana%')); 
