@@ -58,9 +58,9 @@ Answers:-
 from orders
 limit 10;
 
-2)select id, account_id, (standard_amt_usd+gloss_amt_usd+poster_amt_usd)/poster_amt_usd as per_revenue
+2)select id, account_id, (standard_amt_usd+gloss_amt_usd+poster_amt_usd)/(poster_qty) as percentage
 from orders
-limit 10;
+limit 10 
 
 Quiz-->LIKE
 Answers:-
